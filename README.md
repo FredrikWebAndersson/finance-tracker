@@ -30,4 +30,25 @@ This is the finance tracker app from the Ruby on Rails Dev course.
   add a before action (for now in application controller)
   before_action :authenticate_user!
 
+# Add Bootstrap 
+
+  run $ yarn add bootstrap@4.4 jquery popper.js
+  >check the package.json file for import 
+
+  => in config/webpack/environnment.js, add 
+  <const webpack = require("webpack")
+  environment.plugins.append("Provide", new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+  }))>
+
+  => app/javascript/packs/application.js, add 
+  <import 'bootstrap'>
+
+  => app/assets/stylesheets/application.css, add
+  <*= require bootstrap>
+
+  create cutom css file; app/assets/stylesheets/custom.css.scss, add 
+  <@import 'bootstrap/dist/css/bootstrap';>
 
