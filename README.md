@@ -113,3 +113,15 @@ Update Stock Model, stock.rb file
     client.price(ticker_symbol)
   end
   ```
+
+# Add Font Awesome gem for icons 
+add to Gemfile: gem "font-awesome-rails"
+
+add to application.css
+*= require font-awesome
+
+now use types like : 
+```ruby
+fa_icon "search 4x"
+``` 
+or other 
