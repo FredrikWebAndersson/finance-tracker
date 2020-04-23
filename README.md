@@ -3,20 +3,28 @@
 This is the finance tracker app from the Ruby on Rails Dev course. 
 
 # Setup Homepage 
-  run $ rails generate controller welcome index
+  ```bash
+  $ rails generate controller welcome index
+  ```
   >sets a new "get" route => change to "root"
   >create a welcome_controller.rb and define the index action, welcome#index
   >create a view welcome folder and index.html.erb 
 
 # Install Devise gem
   add gem 'devise' => Gemfile 
-  run $ bundle install 
-  run $ rails generate devise:install
+  ```bash
+  $ bundle install 
+  $ rails generate devise:install
+  ```
   >Demands a few basic setups, for ex a root route, flash messages and 
-    $ rails g devise:views 
+  ```bash
+  $ rails g devise:views 
+  ```
   >setup the basic devise views for Users 
+  ```html
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  ```
   >setup flash messages display in views
 
 # Create Users 
@@ -31,24 +39,42 @@ This is the finance tracker app from the Ruby on Rails Dev course.
   before_action :authenticate_user!
 
 # Add Bootstrap 
-
-  run $ yarn add bootstrap@4.4 jquery popper.js
+```bash
+  $ yarn add bootstrap@4.4 jquery popper.js
+```
   >check the package.json file for import 
 
   => in config/webpack/environnment.js, add 
-  <const webpack = require("webpack")
+```javascript
+  const webpack = require("webpack")
   environment.plugins.append("Provide", new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
     Popper: ['popper.js', 'default']
-  }))>
-
+  }))
+```
   => app/javascript/packs/application.js, add 
-  <import 'bootstrap'>
-
+```javascript
+  import 'bootstrap'
+```
   => app/assets/stylesheets/application.css, add
-  <*= require bootstrap>
-
+```javascript
+  *= require bootstrap
+```
   create cutom css file; app/assets/stylesheets/custom.css.scss, add 
-  <@import 'bootstrap/dist/css/bootstrap';>
+```css
+  @import 'bootstrap/dist/css/bootstrap';
+```
+
+## Add devise Boostrap templates 
+add gem to Gemfile 
+```bash 
+gem 'devise-bootstrap-views', '~> 1.0'
+```
+>run $ bundle install
+```bash 
+rails generate devise:views:bootstrap_templates
+```
+if problem, Listen complaining: 
+reference https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
 
