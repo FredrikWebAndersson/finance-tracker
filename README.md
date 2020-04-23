@@ -98,3 +98,18 @@ generate model to set attributes ticker, name and last_price
 $ rails g model Stock ticker:string name:string last_price:decimal
 
 run $ rails db:migrate
+
+## Set credentials in master.key 
+run $ EDITOR="code --wait" rails credentials:edit
+
+register API keys and save 
+
+Update Stock Model, stock.rb file 
+```ruby
+  def self.new_lookup(ticker_symbol)
+    client = IEX::Api::Client.new(publishable_token: Rails.application.credentials.iex_client[:api_key],
+                                  secret_token: Rails.application.credentials.iex_client[:secret_api_key],
+                                  endpoint: 'https://sandbox.iexapis.com/v1')
+    client.price(ticker_symbol)
+  end
+  ```
