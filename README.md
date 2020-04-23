@@ -78,3 +78,19 @@ rails generate devise:views:bootstrap_templates
 if problem, Listen complaining: 
 reference https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
 
+# Setup and use API key
+## Use IEX ruby client 
+ad to Gemfile: gem 'iex-ruby-client'
+
+test in console:
+```ruby
+client = IEX::Api::Client.new(
+  publishable_token: 'publishable_token',
+  secret_token: 'secret_token',
+  endpoint: 'https://sandbox.iexapis.com/v1'
+)
+```
+reference :
+https://github.com/dblock/iex-ruby-client
+
+
