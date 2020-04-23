@@ -93,4 +93,8 @@ client = IEX::Api::Client.new(
 reference :
 https://github.com/dblock/iex-ruby-client
 
+# Design and add Stock Model
+generate model to set attributes ticker, name and last_price
+$ rails g model Stock ticker:string name:string last_price:decimal
 
+run $ rails db:migrate
