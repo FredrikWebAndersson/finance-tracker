@@ -1,9 +1,38 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+/*
+Color Chart 
+#4f3961
+#ea728c
+#fc9d9d
+#f3d4d4
+*/
+body {
+  background-color: whitesmoke;
+}
 .navbar {
-  background-color: #FDF6EA !important;
-  }
-  
+  background-color: #4f3961 !important;
+} 
+.navbar a {
+  color: #f3d4d4 !important;
+}
+.navbar button {
+  border-color: #f3d4d4 !important;
+  color: #f3d4d4 !important;
+}
+.navbar button:hover {
+  background-color: #f3d4d4 !important;
+  color: #fff !important;
+}
 .navbar-brand {  
-font-size: 3rem;  
+font-size: 2rem; 
+color: #f3d4d4 !important; 
+}
+
+.submit-button {
+  background-color: #4f3961 !important;
+  border-color: #4f3961 !important;
+}
+.submit-button:hover {
+  opacity: 0.7;
 }
