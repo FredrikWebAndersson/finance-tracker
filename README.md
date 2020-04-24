@@ -34,7 +34,7 @@ This is the finance tracker app from the Ruby on Rails Dev course.
   run $ rails routes | grep users 
   run $ rails db:migrate
 
-# Before Action 
+## Before Action 
   add a before action (for now in application controller)
   before_action :authenticate_user!
 
@@ -124,4 +124,33 @@ now use types like :
 ```ruby
 fa_icon "search 4x"
 ``` 
-or other 
+or other
+
+## New function begin 
+```ruby
+    begin
+      new(ticker: ticker_symbol, name: client.company(ticker_symbol).company_name, last_price: client.price(ticker_symbol))
+    rescue => exception
+      return nil
+    end
+```
+# AJAX XHR request
+add to form in views
+```ruby
+remote: true 
+```
+## Setup JavaScript response
+in stocks controller search action, add the response as a js format 
+```ruby
+respond_to do |format|
+          format.js { render partial: "users/result" }
+```
+add the partial as a js erb file 
+_result.js.erb
+
+now add this Javascript to the file: 
+```javascript
+document.querySelector("#results").innerHTML = "<%= j render "users/result.html" %>"
+```
+
+## Correct and handle the errors 
