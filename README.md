@@ -154,3 +154,28 @@ document.querySelector("#results").innerHTML = "<%= j render "users/result.html"
 ```
 
 ## Correct and handle the errors 
+Just use the same function as for showing stocks and update the code with the same code, update flash message to a flash.now.
+```ruby
+respond_to do |format|
+          flash.now[:alert] = "Please enter a valid symbol to search stocks"
+          format.js { render partial: "users/result" }
+        end
+```
+
+# Many-to-many Association Stocks/Users
+Build user_stocks table, user_stocks_controller and user_socks Model
+```bash
+  $ rails g resource UserStock user:references stock:references
+```
+Set simple through association for Stock table 
+```ruby
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
+  ```
+same for User table
+```ruby
+  has_many :user_stocks
+  has_many :stocks, through: :user_stocks
+```
+run $ rails db:migrate 
+
