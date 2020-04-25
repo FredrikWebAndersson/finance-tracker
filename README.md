@@ -179,3 +179,27 @@ same for User table
 ```
 run $ rails db:migrate 
 
+# User stock table view, add stocks @ front-end
+
+To use the user_stocks table to display the users stocks table 
+check if ticker allready in the db : models/stock.rb
+```ruby
+ def self.check_db(ticker_symbol)
+    where(ticker: ticker_symbol).first
+  end
+```
+
+update the user stocks controller and add create method 
+
+```ruby
+def create 
+    stock = Stock.check_db(params[:ticker])
+    if stock.blank?
+      stock = Stock.new_lookup(params[:ticker])
+      stock.save
+    end
+    @user_stock = UserStock.create(user: current_user, stock: stock)
+    flash[:notice] = "Stock #{ stock.name } was successfully added to your portfolio"
+    redirect_to my_portfolio_path
+  end
+```
