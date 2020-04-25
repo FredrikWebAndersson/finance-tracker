@@ -1,23 +1,15 @@
 
 <h1>My Portfolio</h1>
 
-<div class="search-container">
-  <h3>Search Stocks</h3>
+<%= render 'stocks/search' %>
 
-  <%= form_tag search_stock_path, remote: true, method: :get do %>
-    <div class="form-group row">
-      <div class="col-sm-8">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
-      </div>
-      <div class="col-sm-4">
-        <%= button_tag type: :submit, class: "submit-button btn btn-success" do %>
-          <%= fa_icon "search 2x" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
-<div id="results">
-  
-</div>
-<%= render "users/result" %>
+<div id="results"></div>
+
+
+<% if !@tracked_stocks.empty? %>
+  <h3 class="mt-5">Your tracked stocks</h3>
+  <%= render 'stocks/list' %>
+<% else %>
+  <h3 class="mt-5">You are not tracking any stocks</h3>
+  <p>Search a stock to build up your portfolio.</p>
+<% end %>

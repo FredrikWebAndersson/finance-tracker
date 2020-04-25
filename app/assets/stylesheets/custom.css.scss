@@ -28,7 +28,19 @@ body {
   font-size: 2rem; 
   color: #f3d4d4 !important; 
 }
-
+.nav-link:hover {
+  color: #ea728c !important;
+}
+.session-btn {
+  background-color: #ea728c !important;
+  border-color: #ea728c !important;
+}
+.session-btn:hover {
+  opacity: 0.7;
+}
+.active {
+  font-weight: bolder !important;
+}
 .dropdown-menu a {
   color: #000000 !important;
 }
