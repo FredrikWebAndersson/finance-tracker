@@ -3,6 +3,8 @@
 
 <%= render "friends/search" %>
 
+<div id="friend-results"></div>
+
 <% if !@friends.empty? %>
   <%= render "friends/list" %>
 <% else %>
