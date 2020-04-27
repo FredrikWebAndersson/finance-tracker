@@ -22,9 +22,14 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
-        </ul>
+        </ul> 
       <% end %>
       <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav-item disable user-name">
+            <%= fa_icon "user" %> <%= current_user.full_name %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <% if !user_signed_in? %>
             <%= link_to "Login", new_user_session_path, class: "session-btn btn btn-success my-2 my-lg-0 mr-2" %>

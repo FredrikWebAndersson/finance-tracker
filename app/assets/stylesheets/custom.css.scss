@@ -25,7 +25,7 @@ body {
   color: #fff !important;
 }
 .navbar-brand {  
-  font-size: 2rem; 
+  font-size: 1.5rem; 
   color: #f3d4d4 !important; 
 }
 .nav-link:hover {
@@ -44,6 +44,11 @@ body {
 }
 .dropdown-menu a {
   color: #000000 !important;
+}
+.user-name {
+  color: #f3d4d4 !important;
+  margin-top: 3.5%;
+  padding-right: 5px;
 }
 .submit-button {
   background-color: #4f3961 !important;
