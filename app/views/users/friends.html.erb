@@ -1,0 +1,11 @@
+
+<h1>My Friends</h1>
+
+<%= render "friends/search" %>
+
+<% if !@friends.empty? %>
+  <%= render "friends/list" %>
+<% else %>
+  <h3 class="mt-5">You are not following any friends</h3>
+  <p>Search for a friend to start following.</p>
+<% end %>
