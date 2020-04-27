@@ -240,3 +240,29 @@ Update sign up and edit forms in views
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 ```
+
+# Friend Relationship, users
+## Self referential association
+
+run $ rails g model Friendship
+
+in migration file :
+```ruby 
+t.references :user, null: false, foreign_key: true 
+t.references :friend, references: :users, foreign_key: { to_table: :users }
+```
+
+Update Friendship Model : 
+```ruby
+  belongs_to :user
+  belongs_to :friend, class_name: "User"
+```
+
+Update User Moded for association : 
+```ruby
+  has_many :friendships
+  has_many :friends, through: :friendships
+```
+
+run $ rails db:migrate
+
