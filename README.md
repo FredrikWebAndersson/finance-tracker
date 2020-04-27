@@ -222,5 +222,21 @@ Update User model to define restriction methods
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   end
   ```
-In portfolio view, use these functions to either show add button or over limit/already tracking message. 
+In portfolio view, use these functions to either show add button or over limit/already tracking message.
 
+# Add First and Last Name to User profile, sign up and edit 
+
+Update sign up and edit forms in views
+> use devise code in application controller to handle the new fields and inputs
+> also remeber to generate a new migration file to add first and last name fields in user table 
+ 
+```ruby
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+  end
+```
