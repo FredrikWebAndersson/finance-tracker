@@ -266,3 +266,32 @@ Update User Moded for association :
 
 run $ rails db:migrate
 
+## Create and Delete {follow/stop following friend} 
+add a friendships controller with the create and destroy action 
+
+```bash
+$ rails g controller friendships create destroy
+```
+
+update views path, friendship_path(friend) #with the object variable as input to get the id of that user. 
+
+Create action (follow user) :
+```ruby
+    friend = User.find(params[:friend])
+    current_user.friendships.build(friend_id: friend.id)
+    if current_user.save
+      flash[:notice] = "Now following user"
+    else
+      flash[:alert] = "There was something wrong with the request"
+    end
+    redirect_to friends_path
+```
+
+Destroy action (strop following user) : 
+```ruby
+    friendship = current_user.friendships.where(friend_id: params[:id]).first #Dont forget .first => we need to select the actual relationship. 
+    friendship.destroy
+    flash[:notice] = "Stopped following"
+    redirect_to friends_path
+```
+

@@ -9,12 +9,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  # Get full name of user
   def full_name 
     return "#{first_name} #{last_name}" if first_name || last_name
     "Anonymous"
   end
 
+  # Stock Relationship
   def stock_already_tracked?(ticker_symbol)
     stock = Stock.check_db(ticker_symbol)
     return false unless stock
@@ -29,6 +30,7 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   end
 
+  # Friends Relationships
   def self.search(param)
     param.strip!
     to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
@@ -54,6 +56,10 @@ class User < ApplicationRecord
 
   def except_current_user(users)
     users.reject { |user| user.id == self.id }
+  end
+
+  def not_friends_with?(friend_id)
+    !self.friends.where(id: friend_id).exists?
   end
 
 end

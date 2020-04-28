@@ -1,3 +1,5 @@
+  <h4 class="mt-5">Friends</h4>
+
   <div class="row">
     <div class="col-8">
       <div class="table-responsive-md">
@@ -16,7 +18,7 @@
                 <th scope="row"><%= friend.email %></th>
                 <td><%= friend.first_name %></td>
                 <td><%= friend.last_name %></td>
-                <td><%= link_to "Stop following", "#", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %></td>
+                <td><%= link_to "Stop following", friendship_path(friend), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %></td>
               </tr>
             <% end %>
           </tbody>
