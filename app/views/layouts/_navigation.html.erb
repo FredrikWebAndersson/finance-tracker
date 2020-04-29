@@ -36,10 +36,10 @@
         <% end %>
         <li class="nav-item">
           <% if !user_signed_in? %>
-            <%= link_to "Login", new_user_session_path, class: "session-btn btn btn-success my-2 my-lg-0 mr-2" %>
-            <%= link_to "Signup", new_user_registration_path, class: "session-btn btn btn-success my-2 my-lg-0 mr-2" %>
+            <%= link_to "Login", new_user_session_path, class: "submit-button btn btn-success my-2 my-lg-0 mr-2" %>
+            <%= link_to "Signup", new_user_registration_path, class: "submit-button session-btn btn btn-success my-2 my-lg-0 mr-2" %>
           <% else %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "session-btn btn btn-success my-2 my-lg-0 mr-2" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "submit-button session-btn btn btn-success my-2 my-lg-0 mr-2" %>
           <% end %>
         </li>
       </ul>
