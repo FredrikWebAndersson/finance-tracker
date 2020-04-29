@@ -1,3 +1,12 @@
-<h1>Welcome the Finance Tracker Application</h1>
-
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1 class="display-4">The Finance Tracker Application</h1>
+    <hr class="my-4">
+    <% if !current_user %>
+    <p class="lead">Sign up to start tracking finance stocks</p>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg submit-button" %>
+    <% else %>
+      <p class="lead">Go and keep an eye on your stocks!</p>
+    <% end %>
+  </div>
+</div>

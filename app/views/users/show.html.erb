@@ -7,7 +7,7 @@
   <% if current_user.not_friends_with?(@user.id) %>
     <%= link_to "follow", friendships_path(friend: @user), class: "btn btn-sm btn-success submit-button float-right", method: :post  %>
   <% else %>
-    <%= link_to "Stop following", friendship_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm float-right" %>
+    <%= link_to "Stop following", friendship_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-success submit-button-2 btn-sm float-right" %>
     <span class="following-span badge badge-success float-right mr-3">Following</span>
   <% end %>
 </div>

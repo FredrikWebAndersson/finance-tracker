@@ -8,20 +8,21 @@ Color Chart
 #f3d4d4
 */
 body {
-  background-color: whitesmoke;
+  background-color: #f2f6f5;
+  height: 100%;
+}
+.jumbotron {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url("homepage.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 475px;
 }
 .navbar {
-  background-color: #4f3961 !important;
+  background-color: #63707e !important;
 } 
 .navbar a {
-  color: #f3d4d4 !important;
-}
-.navbar button {
-  border-color: #f3d4d4 !important;
-  color: #f3d4d4 !important;
-}
-.navbar button:hover {
-  background-color: #f3d4d4 !important;
   color: #fff !important;
 }
 .navbar-brand {  
@@ -29,15 +30,15 @@ body {
   color: #f3d4d4 !important; 
 }
 .nav-link:hover {
-  color: #ea728c !important;
+  color: #c8dad3 !important;
 }
 .session-btn {
-  background-color: #ea728c !important;
-  border-color: #ea728c !important;
+  background-color: #63707e !important;
+  border-color: #63707e !important;
   color: #fff !important;
 }
 .session-btn:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .active {
   font-weight: bolder !important;
@@ -46,19 +47,26 @@ body {
   color: #000000 !important;
 }
 .user-name {
-  color: #f3d4d4 !important;
+  color: #fff !important;
   margin-top: 3.5%;
   padding-right: 5px;
 }
 .submit-button {
-  background-color: #4f3961 !important;
-  border-color: #4f3961 !important;
+  background-color: #93b5b3 !important;
+  border-color: #93b5b3 !important;
   margin-right: 1rem;
 }
 .submit-button:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
-
+.submit-button-2 {
+  background-color: #63707e !important;
+  border-color: #63707e !important;
+  margin-right: 1rem;
+}
+.submit-button-2:hover {
+  opacity: 0.8;
+}
 .search-container {
   padding-top: 3rem;
 }
@@ -68,4 +76,10 @@ body {
 }
 .following-span {
   margin-top: 1%;
+}
+#sticky-footer {
+  background-color: #63707e !important;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

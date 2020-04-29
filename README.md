@@ -295,3 +295,13 @@ Destroy action (strop following user) :
     redirect_to friends_path
 ```
 
+# Deploy to production => Heroku 
+git push heroku master 
+heroku run rails db:migrate 
+
+set the master.key var on heroku => 
+```bash
+  $ heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+```
+
+references : https://medium.com/craft-academy/encrypted-credentials-in-ruby-on-rails-9db1f36d8570

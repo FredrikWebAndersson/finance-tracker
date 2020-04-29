@@ -11,9 +11,8 @@
 
   <body>
     <%= render "layouts/navigation" %>
-    <div class="container pt-5 pb-5">
-      <%= render "layouts/messages" %>
-      <%= yield %>
-    </div>
+    <%= render "layouts/messages" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
